@@ -48,7 +48,6 @@ async def start_services():
     print('----------------------- Service Started -----------------------')
     print('                        bot =>> {}'.format((await StreamBot.get_me()).first_name))
     print('                        server ip =>> {}:{}'.format(bind_address, Var.PORT))
-        await asyncio.create_task(ping_server())
     print('---------------------------------------------------------------')
     await idle()
 
