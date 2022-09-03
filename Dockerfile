@@ -7,5 +7,5 @@ RUN apt-get install -y nodejs
 RUN npm i -g npm
 COPY . /master/
 WORKDIR /master/
-RUN pip3 install -U -r requirement.txt
+RUN pip3 install -U -r requirements.txt
 CMD python3 -m WebStreamer
