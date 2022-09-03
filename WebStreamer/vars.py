@@ -24,9 +24,9 @@ class Var(object):
         APP_NAME = str(getenv('APP_NAME'))
     else:
         ON_HEROKU = False
-    FQDN = str(getenv('FQDN', BIND_ADRESS)) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
+    FQDN = str(getenv('FQDN', 'ajaybackup.github.io/Kaali-Linux')) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
     URL = "https://{}/".format(FQDN) if ON_HEROKU or NO_PORT else \
-        "http://{}:{}/".format(FQDN, PORT)
+        "http://{}/".format(FQDN)
     DATABASE_URL = str(getenv('DATABASE_URL','mongodb+srv://Ajaybackup235:Ajay1323@cluster0.nprpuiy.mongodb.net/?retryWrites=true&w=majority'))
     PING_INTERVAL = int(getenv('PING_INTERVAL', '500'))
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', None))
