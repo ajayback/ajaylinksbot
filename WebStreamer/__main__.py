@@ -42,17 +42,12 @@ async def start_services():
     print('------------------- Initalizing Web Server -------------------')
     app = web.AppRunner(await web_server())
     await app.setup()
-    bind_address = "0.0.0.0" if Var.ON_HEROKU else Var.FQDN
+    bind_address = "ajaybackup.github.io/Kaali-Linux"
     await web.TCPSite(app, bind_address, Var.PORT).start()
     print('\n')
     print('----------------------- Service Started -----------------------')
     print('                        bot =>> {}'.format((await StreamBot.get_me()).first_name))
     print('                        server ip =>> {}:{}'.format(bind_address, Var.PORT))
-    if Var.ON_HEROKU:
-        print('                        app runnng on =>> {}'.format(Var.FQDN))
-    if Var.ON_HEROKU:
-        print('------------------ Starting Keep Alive Service ------------------')
-        print('\n')
         await asyncio.create_task(ping_server())
     print('---------------------------------------------------------------')
     await idle()
