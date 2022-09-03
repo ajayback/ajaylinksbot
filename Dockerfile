@@ -8,4 +8,4 @@ RUN npm i -g npm
 COPY . /aditya/
 WORKDIR /aditya/
 RUN pip3 install -U -r requirement.txt
-CMD python3 -m modules
+CMD python3 -m WebStreamer
