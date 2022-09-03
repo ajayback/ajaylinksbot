@@ -18,15 +18,8 @@ class Var(object):
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
     OWNER_ID = int(getenv('OWNER_ID', '953267481'))
     NO_PORT = bool(getenv('NO_PORT', True))
-    APP_NAME = None
-    if 'DYNO' in environ:
-        ON_HEROKU = True
-        APP_NAME = str(getenv('APP_NAME'))
-    else:
-        ON_HEROKU = False
-    FQDN = str(getenv('FQDN', 'ajaybackup.github.io/Kaali-Linux')) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
-    URL = "https://{}/".format(FQDN) if ON_HEROKU or NO_PORT else \
-        "http://{}/".format(FQDN)
+    FQDN = str(getenv('FQDN', 'ajaybackup.github.io/Kaali-Linux'))
+    URL = "https://{}/".format(FQDN)
     DATABASE_URL = str(getenv('DATABASE_URL','mongodb+srv://Ajaybackup235:Ajay1323@cluster0.nprpuiy.mongodb.net/?retryWrites=true&w=majority'))
     PING_INTERVAL = int(getenv('PING_INTERVAL', '500'))
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', None))
